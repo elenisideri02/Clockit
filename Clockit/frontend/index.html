@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clockit - Last-Minute Tickets</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <nav id="main-nav"></nav>
+ 
+  <main>
+    <section class="hero">
+      <h1 data-i18n="hero_title">Last-Minute Tickets, Best Prices</h1>
+      <p data-i18n="hero_subtitle">Buy and sell tickets for concerts, sports, theatre and more across Greece.</p>
+      <a href="/events.html" class="btn btn-primary" data-i18n="hero_cta">Browse Events</a>
+    </section>
+ 
+    <h2 class="section-title" data-i18n="featured_title">Featured Events</h2>
+    <div class="featured-grid" id="featured-grid">
+      <p data-i18n="loading">Loading...</p>
+    </div>
+    <div style="text-align:center; margin-bottom: 40px;">
+      <a href="/events.html" class="btn btn-outline" data-i18n="view_all">View All Events</a>
+    </div>
+  </main>
+ 
+  <footer id="main-footer"></footer>
+  <div id="toast-container"></div>
+ 
+  <script src="/js/i18n.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    initPage().then(() => loadHomePage());
+  </script>
+</body>
+</html>
+ 

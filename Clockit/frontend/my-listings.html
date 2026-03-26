@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clockit - My Listings</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <nav id="main-nav"></nav>
+ 
+  <main>
+    <h2 class="section-title" data-i18n="my_listings_title">My Listings</h2>
+    <div id="my-listings-content">
+      <p data-i18n="loading">Loading...</p>
+    </div>
+  </main>
+ 
+  <footer id="main-footer"></footer>
+  <div id="toast-container"></div>
+ 
+  <script src="/js/i18n.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/my-listings.js"></script>
+  <script>
+    initPage().then(() => loadMyListings());
+  </script>
+</body>
+</html>
+ 

@@ -1,0 +1,34 @@
+version: "3.9"
+ 
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: clockit
+      POSTGRES_PASSWORD: clockit
+      POSTGRES_DB: clockit
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clockit"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+ 
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://clockit:clockit@db:5432/clockit
+      JWT_SECRET: clockit-dev-secret-change-in-prod
+    volumes:
+      - ./frontend:/app/frontend
+ 
+volumes:
+  pgdata:
